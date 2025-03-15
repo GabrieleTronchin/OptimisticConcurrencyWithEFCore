@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using OptimisticConcurrency.Host.Endpoints;
 using OptimisticConcurrency.Persistence;
 
@@ -19,5 +20,12 @@ app.UseHttpsRedirection();
 
 var routeBuilder = app.MapGroup("/v1/cinema");
 routeBuilder.AddEndpoints();
+
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<CinemaDbContext>();
+    dbContext.Database.Migrate(); 
+}
 
 app.Run();
