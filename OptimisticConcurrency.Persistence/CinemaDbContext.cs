@@ -5,9 +5,8 @@ namespace OptimisticConcurrency.Persistence;
 
 public class CinemaDbContext : DbContext
 {
-    public CinemaDbContext(DbContextOptions<CinemaDbContext> options) : base(options)
-    {
-    }
+    public CinemaDbContext(DbContextOptions<CinemaDbContext> options)
+        : base(options) { }
 
     public DbSet<MovieEntity> Movies { get; set; }
 
@@ -15,5 +14,4 @@ public class CinemaDbContext : DbContext
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(CinemaDbContext).Assembly);
     }
-
 }

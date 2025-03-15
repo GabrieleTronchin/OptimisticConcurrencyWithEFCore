@@ -5,10 +5,12 @@ using OptimisticConcurrency.Persistence.Repository;
 
 namespace OptimisticConcurrency.Persistence;
 
-
 public static class ServicesExtensions
 {
-    public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddPersistence(
+        this IServiceCollection services,
+        IConfiguration configuration
+    )
     {
         services.AddScoped<IMovieRepository, MovieRepository>();
         services.AddDbContext<CinemaDbContext>(options =>

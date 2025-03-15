@@ -8,6 +8,7 @@ public class MovieEntity
     public int Id { get; set; }
     public string Title { get; set; } = string.Empty;
     public DateTime ReleaseDate { get; set; }
+
     [Timestamp]
     public byte[] RowVersion { get; set; }
 }

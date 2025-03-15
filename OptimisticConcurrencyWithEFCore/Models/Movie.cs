@@ -8,7 +8,6 @@ public class CreateMovie
     public DateTime ReleaseDate { get; set; }
 }
 
-
 public class Movie : CreateMovie
 {
     [Required]

@@ -13,28 +13,30 @@ public class MovieRepository : IMovieRepository
         _context = context;
     }
 
-    public DbSet<MovieEntity> Entity { get => _context.Movies; }
+    public DbSet<MovieEntity> Entity
+    {
+        get => _context.Movies;
+    }
 
     public async Task<MovieEntity> GetAsync(int id, CancellationToken cancel)
     {
-        return await _context.Movies
-            .SingleOrDefaultAsync(x => x.Id == id, cancel) ??
-             throw new InvalidOperationException($"System could not find any {nameof(MovieEntity.Id)} with value {id}");
+        return await _context.Movies.SingleOrDefaultAsync(x => x.Id == id, cancel)
+            ?? throw new InvalidOperationException(
+                $"System could not find any {nameof(MovieEntity.Id)} with value {id}"
+            );
     }
 
     public async Task<IEnumerable<MovieEntity>> GetAsync(CancellationToken cancel)
     {
-        return await _context.Movies
-        .ToListAsync(cancel);
-
+        return await _context.Movies.ToListAsync(cancel);
     }
 
-    public async Task<IEnumerable<MovieEntity>> GetAsync(Expression<Func<MovieEntity, bool>> filter, CancellationToken cancel)
+    public async Task<IEnumerable<MovieEntity>> GetAsync(
+        Expression<Func<MovieEntity, bool>> filter,
+        CancellationToken cancel
+    )
     {
-
-        return await _context.Movies
-            .Where(filter)
-            .ToListAsync(cancel);
+        return await _context.Movies.Where(filter).ToListAsync(cancel);
     }
 
     public async Task AddAsync(MovieEntity entity)
@@ -56,5 +58,4 @@ public class MovieRepository : IMovieRepository
     {
         await _context.SaveChangesAsync();
     }
-
 }
