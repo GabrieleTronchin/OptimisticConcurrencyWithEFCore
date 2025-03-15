@@ -1,3 +1,4 @@
+using Delta;
 using Microsoft.EntityFrameworkCore;
 using OptimisticConcurrency.Host.Endpoints;
 using OptimisticConcurrency.Persistence;
@@ -17,6 +18,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseDelta<CinemaDbContext>();
 
 var routeBuilder = app.MapGroup("/v1/cinema");
 routeBuilder.AddEndpoints();
