@@ -14,7 +14,7 @@ public static class MovieEndpoint
             return await repository.GetAsync(cancellationToken);
         });
 
-        app.MapGet("/movie/{id}", async (int id,IMovieRepository repository, CancellationToken cancellationToken) =>
+        app.MapGet("/movie/{id}", async (int id, IMovieRepository repository, CancellationToken cancellationToken) =>
         {
             return await repository.GetAsync(id, cancellationToken);
         });
