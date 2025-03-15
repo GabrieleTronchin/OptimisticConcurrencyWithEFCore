@@ -7,7 +7,6 @@ namespace OptimisticConcurrency.Persistence.Repository
     public interface IMovieRepository
     {
         DbSet<MovieEntity> Entity { get; }
-
         Task AddAsync(MovieEntity entity);
         Task<IEnumerable<MovieEntity>> GetAsync(CancellationToken cancel);
         Task<IEnumerable<MovieEntity>> GetAsync(Expression<Func<MovieEntity, bool>> filter, CancellationToken cancel);

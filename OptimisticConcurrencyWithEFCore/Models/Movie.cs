@@ -1,13 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace OptimisticConcurrency.Persistence.Entities;
+namespace OptimisticConcurrency.Host.Models;
 
-public class MovieEntity
+public class CreateMovie
 {
-    [Key]
-    public int Id { get; set; }
     public string Title { get; set; } = string.Empty;
     public DateTime ReleaseDate { get; set; }
-    [Timestamp]
+}
+
+
+public class Movie : CreateMovie
+{
+    [Required]
+    public int Id { get; set; }
+
+    [Required]
     public byte[] RowVersion { get; set; }
 }

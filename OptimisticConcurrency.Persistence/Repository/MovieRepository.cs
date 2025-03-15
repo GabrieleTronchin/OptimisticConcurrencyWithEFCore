@@ -37,11 +37,6 @@ public class MovieRepository : IMovieRepository
             .ToListAsync(cancel);
     }
 
-    public async Task SaveChangesAsync()
-    {
-        await _context.SaveChangesAsync();
-    }
-
     public async Task AddAsync(MovieEntity entity)
     {
         await _context.AddAsync(entity);
@@ -55,6 +50,11 @@ public class MovieRepository : IMovieRepository
     public void Remove(MovieEntity entity)
     {
         _context.Remove(entity);
+    }
+
+    public async Task SaveChangesAsync()
+    {
+        await _context.SaveChangesAsync();
     }
 
 }
