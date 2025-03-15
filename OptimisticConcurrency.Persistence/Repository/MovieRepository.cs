@@ -1,5 +1,6 @@
 ﻿using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using OptimisticConcurrency.Persistence.Entities;
 
 namespace OptimisticConcurrency.Persistence.Repository;
@@ -7,10 +8,12 @@ namespace OptimisticConcurrency.Persistence.Repository;
 public class MovieRepository : IMovieRepository
 {
     private readonly CinemaDbContext _context;
+    private readonly ILogger<MovieRepository> _logger;
 
-    public MovieRepository(CinemaDbContext context)
+    public MovieRepository(ILogger<MovieRepository> logger, CinemaDbContext context)
     {
         _context = context;
+        _logger = logger;
     }
 
     public DbSet<MovieEntity> Entity
@@ -56,6 +59,14 @@ public class MovieRepository : IMovieRepository
 
     public async Task SaveChangesAsync()
     {
-        await _context.SaveChangesAsync();
+        try
+        {
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException ex)
+        {
+            _logger.LogError(ex, "Concurrency exception occurred while saving changes.");
+            throw new InvalidOperationException("A concurrency conflict occurred while saving changes. Please try again.", ex);
+        }
     }
 }
