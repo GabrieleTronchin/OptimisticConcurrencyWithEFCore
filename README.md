@@ -1,4 +1,3 @@
-```md
 # Handling Optimistic Concurrency with EFCore
 
 This project demonstrates how to manage **optimistic concurrency** using **Entity Framework Core** in **.NET 9**.  
