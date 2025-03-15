@@ -4,7 +4,7 @@ using OptimisticConcurrency.Persistence.Entities;
 
 namespace OptimisticConcurrency.Persistence.Repository;
 
-internal class MovieRepository : IMovieRepository
+public class MovieRepository : IMovieRepository
 {
     private readonly CinemaDbContext _context;
 
