@@ -1,0 +1,6 @@
+@OptimisticConcurrencyWithEFCore_HostAddress = http://localhost:5223
+
+GET {{OptimisticConcurrencyWithEFCore_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimisticConcurrency.Host", "OptimisticConcurrencyWithEFCore\OptimisticConcurrency.Host.csproj", "{B8617A41-A8AE-45CC-9FBD-E5440B59D0BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptimisticConcurrency.Persistence", "OptimisticConcurrency.Persistence\OptimisticConcurrency.Persistence.csproj", "{A6498D14-1332-46D4-BEB0-FEBFB520A6F3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8617A41-A8AE-45CC-9FBD-E5440B59D0BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8617A41-A8AE-45CC-9FBD-E5440B59D0BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8617A41-A8AE-45CC-9FBD-E5440B59D0BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8617A41-A8AE-45CC-9FBD-E5440B59D0BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6498D14-1332-46D4-BEB0-FEBFB520A6F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6498D14-1332-46D4-BEB0-FEBFB520A6F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6498D14-1332-46D4-BEB0-FEBFB520A6F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6498D14-1332-46D4-BEB0-FEBFB520A6F3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
